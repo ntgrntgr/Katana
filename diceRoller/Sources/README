@@ -1,0 +1,9 @@
+During the first stages of development of this diceRoller, I was testing out to see if the 
+separating of class definitions in multiple files would work. 
+I encountered errors while compiling but, I looked it up and I was not linking the files correctly. 
+
+I was doing " g++ main.cpp -o test" but this was not working. the error was that main.cpp was calling
+the methods defined in dice.cpp but dice.cpp was not compiled yet. 
+
+correction to this was to change the command to this instead. I watched it in a youtube video
+" g++ main.cpp -o test dice.cpp"

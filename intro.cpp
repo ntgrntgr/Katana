@@ -1,6 +1,10 @@
 #include<iostream>
-using namespace std;
+
 int main(){
-    cout<<"This is an introduction program to this repository"<<endl;
+    std::cout<<"This is an introduction program to this repository"<<std::endl;
+    short numberOne = 5;
+    short numberTwo = 3;
+    short numberThree = numberOne + numberTwo;
+    std::cout << numberThree << std::endl;
     return 0;
 }

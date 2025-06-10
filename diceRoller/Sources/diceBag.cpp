@@ -52,3 +52,7 @@ void DiceBag::setTotalRolled(short dTotalRolled){
 short DiceBag::getTotalRolled(){
     return totalRoled;
 }
+
+DiceBag::~DiceBag(){
+    std::cout << "Destructor called" << std::endl;
+}

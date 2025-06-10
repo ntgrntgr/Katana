@@ -14,6 +14,8 @@ class DiceBag{
         short getTotalRolled();
         void setTotalRolled(short sTotalRolled);
 
+        ~DiceBag();
+
     private:
         short numberOfDice;
         short totalRoled;

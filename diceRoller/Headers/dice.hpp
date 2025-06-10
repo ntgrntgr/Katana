@@ -9,6 +9,9 @@ class Dice{
         void setNumberOfFaces(short numberOfFaces);
         short getCurrentFace();
         void setCurrentFace(short dcurrentFace);
+
+
+        ~Dice();
         
         
 
@@ -16,6 +19,8 @@ class Dice{
     private:
         short numberOfFaces;
         short currentFace;
+    
+    
         
 
 };

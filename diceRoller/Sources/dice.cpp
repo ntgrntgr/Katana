@@ -31,3 +31,7 @@ void Dice::roll(){
    short randomN = distrib(gen);
    setCurrentFace(randomN); 
 }
+
+Dice::~Dice(){
+    std::cout << "Dice destroyed" << std::endl;
+}

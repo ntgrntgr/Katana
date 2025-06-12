@@ -6,6 +6,7 @@ class Block{
     public:
         Block(time_t timestamp,std::string lastHash, std::string hash, std::string data);
         Block();
+        
         std::string getHash();
         std::string getLastHash();
         time_t getTimeStamp();
@@ -14,8 +15,14 @@ class Block{
         void setLastHash(std::string lastHash);
         void setTimeStamp(time_t timestamp);
         void setData(std::string data);
+       
+       
         static Block genesisBlock(); 
         static Block mineBlock(Block lastBlock, std::string data);
+        static std::string sha256(const std::string& str);
+        static std::string hashFunction(time_t timestamp, std::string lasthash, std::string data);
+
+
         void toString();
 
 

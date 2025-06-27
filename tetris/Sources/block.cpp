@@ -24,10 +24,24 @@ std::vector<Position> Block::getCellPositions(){
     return movedTiles;
 }
 
+void Block::rotate(){
+    setRotationState(getRotationState() + 1);
+    if(getRotationState() == (int)cells.size()){
+        setRotationState(0);
+    }
+}
+
+void Block::undoRotation(){
+    setRotationState(getRotationState() -1);
+    if(getRotationState() == -1 ){
+        setRotationState((int)cells.size() - 1);
+    }
+}
+
 void Block::Draw(){
     std::vector<Position> tiles = getCellPositions();
     for(Position item:tiles){
-        DrawRectangle(item.getPositionColumn() * (getCellSize() + 1),item.getPositionRow() * (getCellSize() + 1),getCellSize() - 1,getCellSize() - 1, colors[id]);
+        DrawRectangle(item.getPositionColumn() * (getCellSize() + 0),item.getPositionRow() * (getCellSize() + 0),getCellSize() - 1,getCellSize() - 1, colors[id]);
     }
 }
 

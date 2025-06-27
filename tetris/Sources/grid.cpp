@@ -2,6 +2,8 @@
 #include<iostream>
 #include"../Headers/colors.hpp"
 
+
+
 Grid::Grid(){
     setRows(20);
     setColumns(10);
@@ -14,7 +16,61 @@ short Grid::getCellSize(){
     return cellSize;
 }
 
-short Grid::getColumns(){
+bool Grid::isCellOutside(short row, short column){
+    if(row >= 0 && row < getRows() && column >= 0 && column < getColumns()){
+        return false;
+    }
+    return true;
+    
+}
+
+bool Grid::isCellEmpty(short row, short column){
+    if(grid[row][column] == 0){
+        return true;
+    }
+    return false;
+}
+
+bool Grid::isRowFull(short row){
+    for(short column = 0; column < getColumns() ; column++){
+
+        if(grid[row][column] == 0){
+            return false;
+        }
+
+    }
+    return true;
+}
+
+void Grid::clearRow(short row){
+    for(short column = 0; column < getColumns(); column++){
+        grid[row][column] = 0;
+    }
+}
+
+void Grid::moveRowDown(short row, short numRow){
+    for(short column = 0; column < getColumns(); column++){
+        grid[row + numRow][column] = grid[row][column];
+        grid[row][column] = 0;
+    }
+}
+
+short Grid::clearFullRows(){
+    short completedRows = 0;
+    for(short row = getRows()-1 ; row >=0 ; row--){
+        if(isRowFull(row)){
+            clearRow(row);
+            completedRows++;
+        }
+        else if(completedRows > 0){
+            moveRowDown(row, completedRows);
+        }
+    }
+    return completedRows;
+}
+
+short Grid::getColumns()
+{
     return numColumns;
 }
 

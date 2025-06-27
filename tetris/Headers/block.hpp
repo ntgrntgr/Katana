@@ -23,6 +23,8 @@ class Block{
         void setRowOffset(short offset);
         void setColumnOffset(short offset);
 
+        void rotate();
+        void undoRotation();
         void Draw();
         void Move(short rows,short columns);
         std::vector<Position> getCellPositions();

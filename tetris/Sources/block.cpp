@@ -38,10 +38,12 @@ void Block::undoRotation(){
     }
 }
 
-void Block::Draw(){
+
+
+void Block::Draw(short offsetX, short offsetY){
     std::vector<Position> tiles = getCellPositions();
     for(Position item:tiles){
-        DrawRectangle(item.getPositionColumn() * (getCellSize() + 0),item.getPositionRow() * (getCellSize() + 0),getCellSize() - 1,getCellSize() - 1, colors[id]);
+        DrawRectangle(item.getPositionColumn() * getCellSize() + offsetX,item.getPositionRow() * getCellSize() + offsetY,getCellSize() - 1,getCellSize() - 1, colors[id]);
     }
 }
 

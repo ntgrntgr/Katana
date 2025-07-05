@@ -9,10 +9,17 @@ class Game{
         Block nextBlock;
         double updateTime; 
         bool gameOver;
+        int score;
 
         bool isBlockOutside();
         void rotateBlock();
         void resetGame();
+
+        Block getRandomBlock();
+        std::vector<Block> getAllBlocks();
+
+        void moveBlockLeft();
+        void moveBlockRight();
 
         
         
@@ -31,19 +38,19 @@ class Game{
         void setUpdateTime(double newUpdateTime);
         bool getGameOver();
         void setGameOver(bool gamestate);
+        void setScore(int newScore);
+        int getScore();
+        void updateScore(short linesCleared, int moveDownPoints);
 
 
 
         
         std::vector<Block> getBlocks();
-        Block getRandomBlock();
-        std::vector<Block> getAllBlocks();
+        
         
         
         void Draw();
         void handleInput();
-        void moveBlockLeft();
-        void moveBlockRight();
         void moveBlockDown();
         void blockMotion(double interval);
         void lockBlock();

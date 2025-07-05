@@ -25,7 +25,8 @@ class Block{
 
         void rotate();
         void undoRotation();
-        void Draw();
+        
+        void Draw(short offsetX,short offsetY);
         void Move(short rows,short columns);
         std::vector<Position> getCellPositions();
         

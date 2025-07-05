@@ -4,7 +4,7 @@
 
 std::random_device rd;
 std::mt19937 gen(rd());
-std::uniform_int_distribution<> distrib(0,5);
+std::uniform_int_distribution<> distrib(0,6);
 
 Game::Game(){
     setGrid(Grid());
@@ -37,7 +37,7 @@ Block Game::getRandomBlock(){
 }
 
 std::vector<Block> Game::getAllBlocks(){
-    return {IBlock(),JBlock(),OBlock(),SBlock(),TBlock(),ZBlock()};
+    return {LBlock(),IBlock(),JBlock(),OBlock(),SBlock(),TBlock(),ZBlock()};
 
 }
 
@@ -61,7 +61,8 @@ void Game::lockBlock(){
 
     }
     setNextBlock(getRandomBlock());
-    grid.clearFullRows();
+    //updateScore(0,1);
+    updateScore(grid.clearFullRows(),1);
 }
 
 
@@ -153,6 +154,7 @@ void Game::resetGame(){
     setBlocks(getAllBlocks());
     setCurrentBlock(getRandomBlock());
     setNextBlock(getRandomBlock());
+    setScore(0);
 
 }
 
@@ -160,7 +162,8 @@ void Game::resetGame(){
 
 void Game::Draw(){
     grid.Draw();
-    getCurrentBlock().Draw();
+    getCurrentBlock().Draw(10,10);
+    getNextBlock().Draw(270,270);
 
 }
 
@@ -207,4 +210,27 @@ void Game::setGameOver(bool gamestatus){
 
 bool Game::getGameOver(){
     return this->gameOver;
+}
+
+void Game::setScore(int newScore){
+    this->score = newScore;
+}
+
+int Game::getScore(){
+    return this->score;
+}
+
+void Game::updateScore(short linesCleared, int movedDownPoints){
+    // if(linesCleared > 0) {
+    //     setScore(getScore() + 10);
+    //     linesCleared--;
+    //     updateScore(linesCleared,0);
+    // }
+    // setScore(getScore() + movedDownPoints);
+    for(short line = 0; line < linesCleared; line ++){
+        setScore(getScore() + 10);
+    }
+    setScore(getScore() + movedDownPoints);
+
+
 }

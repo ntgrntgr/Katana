@@ -10,6 +10,9 @@ class Game{
         double updateTime; 
         bool gameOver;
         int score;
+        Music music;
+        Sound rotateSound;
+        Sound clearSound;
 
         bool isBlockOutside();
         void rotateBlock();
@@ -27,6 +30,7 @@ class Game{
 
     public:
         Game();
+        ~Game();
         void setCurrentBlock(Block newBlock);
         void setNextBlock(Block newBlock);
         Block& getCurrentBlock();
@@ -41,6 +45,12 @@ class Game{
         void setScore(int newScore);
         int getScore();
         void updateScore(short linesCleared, int moveDownPoints);
+        void setMusic(Music newMusic);
+        Music getMusic();
+        void setRotateSound(Sound newRotateSound);
+        Sound getRotateSound();
+        void setClearSound(Sound newClearSound);
+        Sound getClearSound();
 
 
 

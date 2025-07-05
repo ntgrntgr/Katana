@@ -13,6 +13,19 @@ Game::Game(){
     setNextBlock(getRandomBlock());
     setUpdateTime(0);
     setGameOver(false);
+    InitAudioDevice();
+    setMusic(LoadMusicStream("../Resources/Audios/music.mp3"));
+    //PlayMusicStream(getMusic());
+    setRotateSound(LoadSound("../Resources/Audios/rotate.mp3"));
+    setClearSound(LoadSound("../Resources/Audios/clear.mp3"));
+
+}
+
+Game::~Game(){
+    UnloadSound(getRotateSound());
+    UnloadSound(getClearSound());
+    UnloadMusicStream(getMusic());
+    CloseAudioDevice();
 }
 
 bool Game::isBlockOutside(){
@@ -210,6 +223,30 @@ void Game::setGameOver(bool gamestatus){
 
 bool Game::getGameOver(){
     return this->gameOver;
+}
+
+Music Game::getMusic(){
+    return this->music;
+}
+
+void Game::setMusic(Music newMusic){
+    this->music = newMusic;
+}
+
+Sound Game::getRotateSound(){
+    return this->rotateSound;
+}
+
+void Game::setRotateSound(Sound newRotateSound){
+    this->rotateSound = newRotateSound;
+}
+
+Sound Game::getClearSound(){
+    return this->clearSound;
+}
+
+void Game::setClearSound(Sound newClearSound){
+    this->clearSound = newClearSound;
 }
 
 void Game::setScore(int newScore){

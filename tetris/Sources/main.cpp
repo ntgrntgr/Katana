@@ -10,12 +10,13 @@ int main(){
     InitWindow(500,620, "test");
     SetTargetFPS(60);
 
-    Font font = LoadFontEx("../Resources/Fonts/roboto.ttf",70,0,0);
+    Font font = LoadFontEx("../Resources/Fonts/robotop.ttf",70,0,0);
 
     Game game = Game();
     
     
     while(WindowShouldClose() == false){
+        UpdateMusicStream(game.getMusic());
         game.handleInput();
         game.blockMotion(1);
         BeginDrawing();

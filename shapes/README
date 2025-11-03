@@ -1,0 +1,7 @@
+This is an implementation of the strategy design pattern.
+It might get further updates such as the calculation of area and perimeter but for now it just prints messages if those are called. 
+It implements the strategy design pattern by using interfaces instead of overriding the methods in every shape.
+
+to run it you need to have MAKE installed on you system and on either mac or linux. 
+use Make build command to build and then run the executable using ./test command
+run this these commands in the sources directory. you can also run a make clean to delete the additional 
